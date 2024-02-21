@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "src/move_to_earn1_backend"
+]
+resolver = "2"

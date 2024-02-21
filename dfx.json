@@ -1,0 +1,17 @@
+{
+  "canisters": {
+    "move_to_earn1_backend": {
+      "candid": "src/move_to_earn1_backend/move_to_earn1_backend.did",
+      "package": "move_to_earn1_backend",
+      "type": "rust"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
