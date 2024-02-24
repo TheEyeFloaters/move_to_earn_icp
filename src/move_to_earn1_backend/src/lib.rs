@@ -5,10 +5,6 @@ use candid::CandidType;
 use getrandom::register_custom_getrandom;
 use rand::{rngs::StdRng, RngCore, SeedableRng, Rng};
 
-
-
-
-
 thread_local! {
     // If RuntimeState doesn't implement Default you can wrap it in an Option instead
     static RUNTIME_STATE: RefCell<RuntimeState> = RefCell::default();
@@ -67,7 +63,7 @@ fn crate_player_imp(runtime_state: &mut RuntimeState) -> Result<(), Errors> {
         return Err(Errors::Invalid);
     }
 
-    //
+    // i need to generate  random x and y coordinate for target here
 
 
     let target = Target {x :3 , y: 2 };
