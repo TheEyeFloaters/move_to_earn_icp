@@ -1,3 +1,42 @@
+type Person = record {
+        name : text;
+        coordinate: Coordinate;
+        energy: nat32;
+        coins: nat32;
+        target : Target
+};
+
+type Result =
+    variant {
+        Ok;
+        Err : Errors;
+    };
+
+type Errors =
+    variant {
+    Invalid;
+
+ };
+
+ type Direction =
+    variant{
+    N; NE; E; SE; S; SW; W; NW; NNW;
+ };
+
+
+type Coordinate = record{
+    x : int32;
+    y: int32;
+   };
+
+type Target = record {
+    x : int32;
+    y : int32;
+};
+
 service : {
-    "greet": (text) -> (text) query;
+    "create_player": () -> (Result);
+    "player_loc" : () -> (vec Coordinate);
+    "player_move" : (Direction) -> (Result);
 }
+
