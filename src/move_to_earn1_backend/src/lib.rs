@@ -62,10 +62,7 @@ fn crate_player_imp(runtime_state: &mut RuntimeState) -> Result<(), Errors> {
         // If there's already a player created, return an error
         return Err(Errors::Invalid);
     }
-
-    // i need to generate  random x and y coordinate for target here
-
-
+    let mut c =
     let target = Target {x :3 , y: 2 };
     let point = Coordinate { x: 0, y: 0 };
     runtime_state.data.player.push(Player {

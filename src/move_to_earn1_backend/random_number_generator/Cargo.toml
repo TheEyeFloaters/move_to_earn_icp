@@ -1,6 +1,5 @@
-workspace = { members = ["random_number_generator"] }
 [package]
-name = "move_to_earn1_backend"
+name = "random_number_generator"
 version = "0.1.0"
 edition = "2021"
 
@@ -12,7 +11,6 @@ crate-type = ["cdylib"]
 [dependencies]
 candid = "0.10"
 ic-cdk = "0.12"
-ic-cdk-timers = "0.6"
-serde = { version = "1.0.197", features = ["derive"] }
+ic-cdk-timers = "0.6" # Feel free to remove this dependency if you don't need timers
 getrandom = { version = "0.2", features = ["custom"] }
 rand = { version = "0.8.5", features = ["getrandom"]}
