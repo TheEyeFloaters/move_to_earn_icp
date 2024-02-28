@@ -1,5 +1,6 @@
 [workspace]
 members = [
-    "src/move_to_earn1_backend"
+    "src/move_to_earn1_backend",
+    "src/random_number_generator_backend"
 ]
 resolver = "2"

@@ -32,7 +32,7 @@ pub fn init_ic_rand(){
 
 #[init]
 fn init(){
-    init_ic_rand();
+  init_ic_rand();
 }
 
 #[update]

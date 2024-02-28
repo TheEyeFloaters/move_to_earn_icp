@@ -490,6 +490,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "random_number_generator_backend"
+version = "0.1.0"
+dependencies = [
+ "candid",
+ "getrandom",
+ "ic-cdk",
+ "ic-cdk-timers",
+ "rand",
+]
+
+[[package]]
 name = "rustversion"
 version = "1.0.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
