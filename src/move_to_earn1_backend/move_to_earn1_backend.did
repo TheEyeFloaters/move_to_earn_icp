@@ -36,7 +36,8 @@ type Target = record {
 
 service : {
     "create_player": () -> (Result);
-    "player_loc" : () -> (vec Coordinate);
+    "player_loc" : () -> (vec Coordinate) query;
     "player_move" : (Direction) -> (Result);
+    "get_target":() -> (vec Target) query;
 }
 
