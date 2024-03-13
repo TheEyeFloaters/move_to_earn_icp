@@ -1,6 +1,6 @@
 use candid::Principal;
 use rand::rngs::StdRng;
-use rand::{RngCore, SeedableRng};
+use rand::{Rng, RngCore, SeedableRng};
 use getrandom::register_custom_getrandom;
 
 
@@ -8,7 +8,7 @@ pub trait Environment {
 
     fn caller(&self) -> Principal;
     fn canister_id(&self) -> Principal;
-    fn random_u32(&mut self) -> u32;
+    fn random_i32(&mut self) -> i32;
 }
 
 pub struct CanisterEnv {
@@ -38,20 +38,17 @@ impl Environment for CanisterEnv {
         ic_cdk::id()
     }
 
-    fn random_u32(&mut self) -> u32 {
-        self.rng.next_u32()
+    fn random_i32(&mut self) -> i32 {
+        let random_number = self.rng.gen_range(-10..=10);
+        random_number
 
     }
 }
 
-pub struct TestEnv {
-    pub caller: Principal,
-    pub canister_id: Principal,
-    pub random_u32: u32,
+
+pub struct EmptyEnv {
+
 }
-
-
-pub struct EmptyEnv {}
 
 impl Environment for EmptyEnv {
 
@@ -63,7 +60,7 @@ impl Environment for EmptyEnv {
         Principal::anonymous()
     }
 
-    fn random_u32(&mut self) -> u32 {
-    0
+    fn random_i32(&mut self) -> i32 {
+0
     }
 }

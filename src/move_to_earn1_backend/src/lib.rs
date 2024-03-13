@@ -4,6 +4,7 @@ use std::cell::RefCell;
 use ic_cdk::{query,update,init};
 use serde::Deserialize;
 use candid::CandidType;
+use rand::rngs::StdRng;
 use crate::env::{CanisterEnv, EmptyEnv, Environment};
 
 
@@ -31,10 +32,10 @@ struct RuntimeState {
 
 impl Default for RuntimeState {
     fn default() -> Self {
-        RuntimeState {
-            env: Box::new(EmptyEnv {}),
-            data: Data::default(),
-        }
+        RuntimeState { env: Box::new(CanisterEnv::new()),
+
+
+            data: Data::default(), }
     }
 }
 
@@ -88,8 +89,8 @@ fn crate_player_imp(runtime_state: &mut RuntimeState) -> Result<(), Errors> {
         // If there's already a player created, return an error
         return Err(Errors::Invalid);
     }
-    let id = runtime_state.env.random_u32();
-    let id2 = runtime_state.env.random_u32();
+    let id = runtime_state.env.random_i32();
+    let id2 = runtime_state.env.random_i32();
 
     let target_for_player = Target{x : id as i32, y : id2 as i32 };
     let point = Coordinate { x: 0, y: 0 };
